@@ -5,6 +5,7 @@
  */
 package farmacia;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 
 /**
@@ -13,7 +14,8 @@ import java.util.ArrayList;
  */
 public class Inventario {
     private ArrayList<Producto> productos;
-
+/// aca estamos renombrando una coleccion...deberiamos ver si agregamos algo mas
+    
     public Inventario(ArrayList<Producto> productos) {
         this.productos = productos;
     }
