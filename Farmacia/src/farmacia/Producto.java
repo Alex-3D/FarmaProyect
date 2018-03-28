@@ -17,8 +17,12 @@ public class Producto {
     String descripcion;
     String lavoratorio;
     ArrayList<Proveedor> proveedores; //Podria tener su propia clase, y podria ser mas de 1
-    Boolean estaEnStock;
-    BigDecimal precio;
+//    estos atributos son "externos" tipo no dependen de producto...pa mi deeberia haber otra clase...pero
+//    BigDecimal precio;
+//    private Producto prod; 
+//    private BigDecimal precioCompraXUnidad;
+//    private BigDecimal precioVentaXunidad;
+//    private Int stock;
     
     
 }
