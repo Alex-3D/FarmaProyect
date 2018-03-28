@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class Producto {
     String nombre;
     String descripcion;
-    String lavoratorio;
+    String laboratorio;
     ArrayList<Proveedor> proveedores; //Podria tener su propia clase, y podria ser mas de 1
 //    estos atributos son "externos" tipo no dependen de producto...pa mi deeberia haber otra clase...pero
 //    BigDecimal precio;
