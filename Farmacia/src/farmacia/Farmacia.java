@@ -11,7 +11,7 @@ package farmacia;
  */
 public class Farmacia {
 
-    private Inventario inventario;
+    private InventarioMercancia inventario;
     //proveedores (??
     private Caja laCaja;
     //Controlador

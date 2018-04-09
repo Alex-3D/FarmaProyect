@@ -12,11 +12,12 @@ import java.util.ArrayList;
  *
  * @author Alex3D
  */
-public class Inventario {
-    private ArrayList<Producto> productos;
-/// aca estamos renombrando una coleccion...deberiamos ver si agregamos algo mas
+public class InventarioMercancia {
+    private ArrayList<Mercaderia> mercaderia;
+
+
     
-    public Inventario(ArrayList<Producto> productos) {
+    public InventarioMercancia(ArrayList<Producto> productos) {
         this.productos = productos;
     }
 

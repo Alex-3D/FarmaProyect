@@ -5,6 +5,7 @@
  */
 package farmacia;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 /**
@@ -12,19 +13,21 @@ import java.util.ArrayList;
  * @author Alex3D
  */
 public class Factura {
-    private Integer clientId; //No sabemos q va a ser aun
-    private ArrayList<Producto> productosAVender;
-    private char TipoDeFacura;
-    private Boolean finalizada; //representaria si esta en proseso o si ya se puede "guardar"
+    private int nroFactura;
+    private LocalDateTime fechaFactura;
+    private char TipoDeFactura; //factura A(ri a Ri con ivaDiscr), b(ri a cf, exento, monotributista) o C(no importa condicion Vendedor, comprador)
     private String Vendedor;
+    private Integer clientId; //No sabemos q va a ser aun
+    private ArrayList<Mercaderia> productosFactura;//// aca no se si es mercaderia, 
+    private Boolean finalizada; //representaria si esta en proseso o si ya se puede "guardar"
 
     public Factura(Integer clientId, char TipoDeFacura, String Vendedor) {
         this.clientId = clientId;
-        this.TipoDeFacura = TipoDeFacura;
+        this.TipoDeFactura = TipoDeFacura;
         this.Vendedor = Vendedor;
         this.finalizada=false;
         ArrayList<Producto> p = new ArrayList<>();
-        this.productosAVender = p;
+        this.productosFactura = p;
     }
 
     public Integer getClientId() {
