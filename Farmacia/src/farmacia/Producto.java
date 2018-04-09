@@ -14,8 +14,8 @@ import java.util.ArrayList;
  */
 public class Producto {
     protected String nombre;
+    protected String origen; //empresa que lo fabrica...
     protected String descripcion;
-    protected String Origen; //empresa que lo fabrica...
     
     
 }

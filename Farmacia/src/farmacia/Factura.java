@@ -5,8 +5,10 @@
  */
 package farmacia;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  *
@@ -26,7 +28,7 @@ public class Factura {
         this.TipoDeFactura = TipoDeFacura;
         this.Vendedor = Vendedor;
         this.finalizada=false;
-        ArrayList<Producto> p = new ArrayList<>();
+        ArrayList<Mercaderia> p = new ArrayList<>();
         this.productosFactura = p;
     }
 
@@ -34,12 +36,12 @@ public class Factura {
         return clientId;
     }
 
-    public ArrayList<Producto> getProductosAVender() {
-        return productosAVender;
+    public ArrayList<Mercaderia> getProductosFactura() {
+        return productosFactura;
     }
 
     public char getTipoDeFacura() {
-        return TipoDeFacura;
+        return TipoDeFactura;
     }
 
     public Boolean getFinalizada() {
@@ -54,7 +56,7 @@ public class Factura {
         if(Tipo != 'A' || Tipo != 'B'|| Tipo != 'C') //????
             System.err.println("Error al setear tipo de factura.");
         else    
-            this.TipoDeFacura = TipoDeFacura;
+            this.TipoDeFactura = TipoDeFactura;
     }
 
     public void setFinalizada(Boolean finalizada) {
@@ -66,6 +68,18 @@ public class Factura {
             this.Vendedor = Vendedor;
         else 
             System.err.println("Se intenta ingresar un vendedor SIN NOMBRE");
+    }
+    
+    
+    /// operaciones
+    
+    public BigDecimal precioFinal(){
+        BigDecimal precioFinal = new BigDecimal(0.0);
+        Iterator<Mercaderia> i = this.getProductosFactura().iterator();
+        while(i.hasNext()){
+            precioFinal = precioFinal.add(i.next().getPrecioCompraXUnidad());
+        }
+        return precioFinal;
     }
     
 }

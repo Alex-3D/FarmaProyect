@@ -14,20 +14,20 @@ import java.util.ArrayList;
  */
 public class InventarioMercancia {
     private ArrayList<Mercaderia> mercaderia;
-
+    
 
     
-    public InventarioMercancia(ArrayList<Producto> productos) {
-        this.productos = productos;
+    public InventarioMercancia(ArrayList<Mercaderia> mercaderia) {
+        this.mercaderia = mercaderia;
     }
 
-    public ArrayList<Producto> getProductos() {
-        return productos;
+    public ArrayList<Mercaderia> getProductos() {
+        return mercaderia;
     }
     
-    public void agregarProducto(Producto nuevo) {
+    public void agregarProducto(Mercaderia nuevo) {
         if(nuevo != null)//tambien se podria chequear si el producto ya esta agregado
-            productos.add(nuevo);
+            mercaderia.add(nuevo);
         else
             System.err.println("Se esta intentando agregar un producto NULL al inventario");
         
@@ -35,8 +35,8 @@ public class InventarioMercancia {
     }
     
     public void quitarProducto(Producto p) {
-        if(productos.contains(p))
-            productos.remove(p); //podria ser por nombre
+        if(mercaderia.contains(p))
+            mercaderia.remove(p); //podria ser por nombre
         else
             System.err.println("Se intenta remover del inventario un producto que NO esta en el.");
         
