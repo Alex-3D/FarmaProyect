@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author root
+ * @author alex
  */
 public class Mercaderia extends Producto{
     private ArrayList<Proveedor> proveedores; //Podria tener su propia clase, y podria ser mas de 1
