@@ -9,6 +9,7 @@ import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.ListIterator;
 
 /**
  *
@@ -20,7 +21,7 @@ public class Factura {
     private char TipoDeFactura; //factura A(ri a Ri con ivaDiscr), b(ri a cf, exento, monotributista) o C(no importa condicion Vendedor, comprador)
     private String Vendedor;
     private Integer clientId; //No sabemos q va a ser aun
-    private ArrayList<Mercaderia> productosFactura;//// aca no se si es mercaderia, 
+    private ArrayList<Producto> productosFactura;//// aca no se si es mercaderia, 
     private Boolean finalizada; //representaria si esta en proseso o si ya se puede "guardar"
 
     public Factura(Integer clientId, char TipoDeFacura, String Vendedor) {
@@ -28,7 +29,7 @@ public class Factura {
         this.TipoDeFactura = TipoDeFacura;
         this.Vendedor = Vendedor;
         this.finalizada=false;
-        ArrayList<Mercaderia> p = new ArrayList<>();
+        ArrayList<Producto> p = new ArrayList<>();
         this.productosFactura = p;
     }
 
@@ -36,7 +37,7 @@ public class Factura {
         return clientId;
     }
 
-    public ArrayList<Mercaderia> getProductosFactura() {
+    public ArrayList<Producto> getProductosFactura() {
         return productosFactura;
     }
 
@@ -72,14 +73,24 @@ public class Factura {
     
     
     /// operaciones
+    public void agregarProducto(Producto prod){
+        if(hayStock(prod)){
+            this.getProductosFactura().add(prod);
+        }
+
+    }
     
     public BigDecimal precioFinal(){
         BigDecimal precioFinal = new BigDecimal(0.0);
-        Iterator<Mercaderia> i = this.getProductosFactura().iterator();
+        Iterator<Producto> i = this.getProductosFactura().iterator();
         while(i.hasNext()){
-            precioFinal = precioFinal.add(i.next().getPrecioCompraXUnidad());
+            precioFinal = precioFinal.add(i.next().getValor());
         }
         return precioFinal;
+    }
+
+    public boolean hayStock(Producto prod) {
+        return true;
     }
     
 }
