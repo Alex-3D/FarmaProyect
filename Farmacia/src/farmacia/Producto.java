@@ -13,9 +13,34 @@ import java.util.ArrayList;
  * @author Alex3D
  */
 public class Producto {
-    protected String nombre;
-    protected String origen; //empresa que lo fabrica...
-    protected String descripcion;
+    private String nombre;
+    private String origen; //empresa que lo fabrica...
+    private String descripcion;
+    private BigDecimal valor;
+
+    public Producto(String nombre, String origen, String descripcion, BigDecimal valor) {
+        this.nombre = nombre;
+        this.origen = origen;
+        this.descripcion = descripcion;
+        this.valor = valor;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public String getOrigen() {
+        return origen;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public BigDecimal getValor() {
+        return valor;
+    }
     
     
+   
 }
