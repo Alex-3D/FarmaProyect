@@ -12,46 +12,37 @@ import java.util.ArrayList;
  *
  * @author alex
  */
-public class Mercaderia extends Producto{
+public class Mercaderia {
+    Producto producto;
     private ArrayList<Proveedor> proveedores; //Podria tener su propia clase, y podria ser mas de 1
 //    estos atributos son "externos" tipo no dependen de producto...pa mi deeberia haber otra clase...pero
     private BigDecimal precioCompraXUnidad;
-    private BigDecimal precioVentaXunidad;
+//    private BigDecimal precioVentaXunidad;
     private int stock;
     private int vendidos;
     
     // para productos que la farmacia compra
-    Mercaderia(String nombre, String origen, BigDecimal precioCompra){
-        super.nombre = nombre;
-        super.origen = origen;
+    Mercaderia(Producto prod, BigDecimal precioCompra){
+        producto = prod;
         precioCompraXUnidad = precioCompra;
-        precioVentaXunidad = new BigDecimal(0.0);
+  //      precioVentaXunidad = new BigDecimal(0.0);
         stock = 0;
         int vendidos=0;        
     }
 
     /// productos de la farmacia
-    Mercaderia(String nombre, String origen, BigDecimal precioCompra,BigDecimal precioVenta, int stock){
-        super.nombre = nombre;
-        super.origen = origen;
+    Mercaderia(Producto prod, BigDecimal precioCompra,BigDecimal precioVenta, int stock){
+        producto = prod;
         precioCompraXUnidad = precioCompra;
-        precioVentaXunidad = precioVenta;
+    //    precioVentaXunidad = precioVenta;
         stock = stock;
         int vendidos=0;        
     }
 
 /// getters de la mercaderia
 
-    public String getNombre() {
-        return nombre;
-    }
-
-    public String getOrigen() {
-        return origen;
-    }
-
-    public String getDescripcion() {
-        return descripcion;
+    public Producto getNombre() {
+        return producto;
     }
     
     public ArrayList<Proveedor> getProveedores() {
@@ -62,9 +53,9 @@ public class Mercaderia extends Producto{
         return precioCompraXUnidad;
     }
 
-    public BigDecimal getPrecioVentaXunidad() {
-        return precioVentaXunidad;
-    }
+//    public BigDecimal getPrecioVentaXunidad() {
+//        return precioVentaXunidad;
+//    }
 
     public int getStock() {
         return stock;
@@ -83,10 +74,10 @@ public class Mercaderia extends Producto{
     public void setPrecioCompraXUnidad(BigDecimal precioCompraXUnidad) {
         this.precioCompraXUnidad = precioCompraXUnidad;
     }
-
-    public void setPrecioVentaXunidad(BigDecimal precioVentaXunidad) {
-        this.precioVentaXunidad = precioVentaXunidad;
-    }
+//
+//    public void setPrecioVentaXunidad(BigDecimal precioVentaXunidad) {
+//        this.precioVentaXunidad = precioVentaXunidad;
+//    }
 
     public void setStock(int stock) {
         this.stock = stock;
