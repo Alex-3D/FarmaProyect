@@ -3,12 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package farmacia;
+package org.pharma.farmacia.Domain;
 
 /**
  *
- * @author Alex3D
+ * @author ralel
  */
-public class Proveedor {
-    String nombre;
+public class Ingredient {
+    private String name;
+    
+    public Ingredient(String name){
+        this.name= name;
+    }
 }

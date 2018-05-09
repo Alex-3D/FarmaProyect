@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package farmacia;
+package org.pharma.farmacia.Domain;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -58,4 +58,11 @@ public class LibroDiario {
         return valuacion;
     }
     
+    public void agregarFactura(FacturaCompra fact){
+        this.compras.add(fact);
+    }
+
+    public void agregarFactura(FacturaVenta fact){
+        this.ventas.add(fact);
+    }    
 }

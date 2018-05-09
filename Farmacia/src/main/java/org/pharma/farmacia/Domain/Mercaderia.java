@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package farmacia;
+package org.pharma.farmacia.Domain;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -14,48 +14,47 @@ import java.util.ArrayList;
  */
 public class Mercaderia {
     Producto producto;
-    private ArrayList<Proveedor> proveedores; //Podria tener su propia clase, y podria ser mas de 1
+//    private Proveedor proveedor; // podria tenes mas de uno, pero son productos diferentes
 //    estos atributos son "externos" tipo no dependen de producto...pa mi deeberia haber otra clase...pero
     private BigDecimal precioCompraXUnidad;
-//    private BigDecimal precioVentaXunidad;
+    private BigDecimal precioVentaXunidad;
     private int stock;
     private int vendidos;
+
+    public Mercaderia() {
+    }
     
     // para productos que la farmacia compra
-    Mercaderia(Producto prod, BigDecimal precioCompra){
+    Mercaderia(Producto prod, BigDecimal precioVenta){
         producto = prod;
-        precioCompraXUnidad = precioCompra;
-  //      precioVentaXunidad = new BigDecimal(0.0);
+        precioCompraXUnidad = prod.getValor();
+        precioVentaXunidad = precioVenta;
         stock = 0;
-        int vendidos=0;        
+        int vendidos=0;
+        this.producto.setValor(precioVenta);///cambio precio de producto
     }
 
     /// productos de la farmacia
-    Mercaderia(Producto prod, BigDecimal precioCompra,BigDecimal precioVenta, int stock){
+    Mercaderia(Producto prod, BigDecimal precioVenta, int stock){
         producto = prod;
-        precioCompraXUnidad = precioCompra;
-    //    precioVentaXunidad = precioVenta;
+        precioVentaXunidad = precioVenta;
         stock = stock;
         int vendidos=0;        
     }
 
 /// getters de la mercaderia
 
-    public Producto getNombre() {
+    public Producto getProducto() {
         return producto;
     }
     
-    public ArrayList<Proveedor> getProveedores() {
-        return proveedores;
-    }
-
     public BigDecimal getPrecioCompraXUnidad() {
         return precioCompraXUnidad;
     }
 
-//    public BigDecimal getPrecioVentaXunidad() {
-//        return precioVentaXunidad;
-//    }
+    public BigDecimal getPrecioVentaXunidad() {
+        return precioVentaXunidad;
+    }
 
     public int getStock() {
         return stock;
@@ -67,10 +66,6 @@ public class Mercaderia {
 
 // atributos que se pueden modificar
 
-    public void setProveedores(ArrayList<Proveedor> proveedores) {
-        this.proveedores = proveedores;
-    }
-
     public void setPrecioCompraXUnidad(BigDecimal precioCompraXUnidad) {
         this.precioCompraXUnidad = precioCompraXUnidad;
     }
@@ -78,10 +73,6 @@ public class Mercaderia {
 //    public void setPrecioVentaXunidad(BigDecimal precioVentaXunidad) {
 //        this.precioVentaXunidad = precioVentaXunidad;
 //    }
-
-    public void setStock(int stock) {
-        this.stock = stock;
-    }
     
     public void setVendidos(int vendidos) {
         this.vendidos = vendidos;
@@ -95,7 +86,6 @@ public class Mercaderia {
     public void disminuirStock(int cant){
         this.stock = this.stock - cant;// siempre disminuimos con stock, es decir nunca va devoler algo negativo....
     }
-    
     
     
 }
